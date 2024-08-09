@@ -2,7 +2,7 @@ FROM python:slim
 
 RUN pip install numpy
 
-RUN pip install matplotlib.pyplot
+RUN pip install matplotlib
 
 RUN pip install pandas
 
