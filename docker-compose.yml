@@ -1,0 +1,6 @@
+services:
+  sense_python:
+    build: ./
+    volumes:
+      - ./:/mnt
+    tty: true
