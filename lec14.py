@@ -13,14 +13,14 @@ import math
 
 if __name__ == "__main__":
 
-    data_name = "lec14_1"
+    data_name = "lec14_test_1"
 
     file_name = data_name + ".csv"
 
     # CSVを読み込む
     d1 = np.loadtxt(file_name, delimiter=',')
 
-    data_name = "lec14_2"
+    data_name = "lec14_test_2"
 
     file_name = data_name + ".csv"
 
