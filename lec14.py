@@ -11,21 +11,17 @@ import pandas as pd
 import math
 
 
+def getData(data_name):
+    file_name = data_name + ".csv"
+    data = np.loadtxt(file_name, delimiter=',')
+    return data
+
+
 if __name__ == "__main__":
 
-    data_name = "lec14_1"
-
-    file_name = data_name + ".csv"
-
     # CSVを読み込む
-    d1 = np.loadtxt(file_name, delimiter=',')
-
-    data_name = "lec14_2"
-
-    file_name = data_name + ".csv"
-
-    # CSVを読み込む
-    d2 = np.loadtxt(file_name, delimiter=',')
+    d1 = getData("lec14_1")
+    d2 = getData("lec14_2")
 
     # データ部を取得
     print("健常者データ")
