@@ -69,4 +69,4 @@ if __name__ == "__main__":
     print(x)
 
     z = (mean1 - mean2) @ np.linalg.inv(siguma) @ (x - mean)
-    print(z)
+    print(f"マハラノビス距離の二乗{z}")
