@@ -10,6 +10,31 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import math
 
+# 平均
+
+
+def getMean(data):
+    matrix_mean = np.mean(data, axis=0)
+    print(f"検査値ごとの平均:{matrix_mean}")
+    return matrix_mean
+
+# 偏差行列
+
+
+def getDevmatrix(data, mean):
+    A = data - mean
+    print(f"偏差行列{A}")
+    return A
+
+# 偏差平方積和
+
+
+def getDevSumOfSquares(A):
+    S = np.dot(A.T, A)
+    print(f"偏差平方和積和:{S}")
+
+    return S
+
 
 def getData(data_name):
     file_name = data_name + ".csv"
@@ -25,37 +50,31 @@ if __name__ == "__main__":
 
     # データ部を取得
     print("健常者データ")
-    print(d1)
+    print(data1)
 
-    mean1 = np.mean(d1, axis=0)
-    print(f"検査値ごとの平均:{mean1}")
+    mean1 = getMean(data1)
 
-    A1 = d1 - mean1
-    print(f"偏差行列{A1}")
+    A1 = getDevmatrix(data1, mean1)
 
-    S1 = np.dot(A1.T, A1)
-    print(f"偏差平方和積和:{S1}")
+    S1 = getDevSumOfSquares(A1)
 
     # データ部を取得
     print("患者データ")
-    print(d2)
+    print(data2)
 
-    mean2 = np.mean(d2, axis=0)
-    print(f"検査値ごとの平均:{mean2}")
+    mean2 = getMean(data2)
 
-    A2 = d2 - mean2
-    print(f"偏差行列{A2}")
+    A2 = getDevmatrix(data2, mean2)
 
-    S2 = np.dot(A2.T, A2)
-    print(f"偏差平方和積和:{S2}")
+    S2 = getDevSumOfSquares(A2)
 
     mean = (mean1 + mean2) / 2
     print(f"平均:{mean}")
 
-    n1 = d1.shape[0]
+    n1 = data1.shape[0]
     print(f"自由度(健常者):{n1}")
 
-    n2 = d2.shape[0]
+    n2 = data2.shape[0]
     print(f"自由度(患者):{n2}")
 
     siguma = (S1 + S2) / ((n1 - 1) + (n2 - 1))
